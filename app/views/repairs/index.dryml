@@ -1,0 +1,64 @@
+<index-page>
+
+
+
+<new-link: replace >         
+	<a action="send_for_repair" to="&model"  >
+          <ht key="repairs.actions.send_for_repair">维修</ht>
+        </a>|
+        <a action="add_history_repair" to="&model"  >
+          <ht key="repairs.actions.add_history_repair">添加维修历史记录</ht>
+        </a>
+       | <%= link_to '打印',{:controller => "repairs",:action => "print",:id => this},:popup=> true %>
+</new-link:>
+
+ <collection: replace>
+
+ <table-plus with="&this" fields="this,equipment,contact,report_at,end_at,trouble,result,state" without-search-form >
+
+     
+     <append-header:>
+     
+ 		  
+         <form action='' method='get' >
+           
+          <span>开始日期</span>
+          <input name='start_at' class='search' type='date' value='&params[:start_at]' size='10'/>
+          <span>结束日期</span>
+          <input name='end_at' class='search' type='date' value='&params[:end_at]' size='10'/>
+          <span>客户</span>
+          <input name='customer' class='search' type='search' value='&params[:customer]' size='10'/>
+             <span>卡号</span>
+          <input name='card' class='search' type='search' value='&params[:card]' size='10'/>
+          
+          
+          <span>通用搜索</span>
+          <input name='search' class='search' type='search' value='&params[:search]' size='10' />
+          <submit class='search-button'  label='搜索'/>
+
+        </form>
+           
+  	<span></span>
+	
+    
+
+
+    </append-header:>
+    
+   
+
+
+
+ 
+		 <controls:>
+		 <transition-buttons/>
+		 <delete-button/>
+		 </controls:>
+      
+     <empty-message:>No repairs match your criteria</empty-message:>
+  
+  </table-plus>
+ 
+ </collection:>
+
+</index-page>

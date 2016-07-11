@@ -1,0 +1,42 @@
+<include src="rapid" plugin="hobo"/>
+
+<include src="taglibs/auto/rapid/cards"/>
+<include src="taglibs/auto/rapid/pages"/>
+<include src="taglibs/auto/rapid/forms"/>
+
+<set-theme name="clean"/>
+
+<def tag="app-name">Info</def>
+
+
+<def tag="main-nav">
+  <navigation class="main-nav" merge-attrs param="default">
+    <nav-item href="#{base_url}/">Home</nav-item>
+    <% models = Hobo::Model.all_models.select { |m| linkable?(m, :index) }.sort_by &:name -%>
+    <repeat with="&models">
+      <nav-item><ht key="#{this.name.tableize}.nav_item"><%= this.view_hints.model_name %></ht></nav-item>
+    </repeat>
+	<if test="&current_user.administrator?">
+    <nav-item href="/admin">Admin</nav-item>
+    </if>
+  </navigation>
+</def>
+
+<extend tag="card" for="Assignment">
+	<old-card merge>
+	<append-header:>
+	<transition-buttons/>
+	</append-header:>
+	
+	</old-card>
+
+</extend>
+
+<extend tag="card" for="Configuration">
+	<old-card  >
+		<prepend-heading:>
+			<delete-button image="small_close.png" update="self"/>
+		</prepend-heading:>
+	</old-card>
+	
+</extend>

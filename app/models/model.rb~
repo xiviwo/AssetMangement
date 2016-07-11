@@ -1,0 +1,40 @@
+class Model < ActiveRecord::Base
+
+  hobo_model # Don't put anything above this
+
+  fields do
+    name	:string
+    #model_type	:string
+    brand	:string
+  	
+  	timestamps
+    
+  end
+
+	has_many	:equipments
+	belongs_to 	:category
+	
+	validates_presence_of :name,:brand,:category,:message=> "not blank"
+	validates_uniqueness_of :name
+	def name 
+		self.brand + " " + self.category.name 
+	end
+  # --- Permissions --- #
+
+  def create_permitted?
+    acting_user.administrator?
+  end
+
+  def update_permitted?
+    acting_user.administrator?
+  end
+
+  def destroy_permitted?
+    acting_user.administrator?
+  end
+
+  def view_permitted?(field)
+    true
+  end
+
+end

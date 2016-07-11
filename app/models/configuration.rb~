@@ -1,0 +1,46 @@
+class Configuration < ActiveRecord::Base
+
+  hobo_model # Don't put anything above this
+
+  fields do
+  	item	:string
+  	value	:string
+	status	enum_string('true','false')
+  	set_at	:date
+  	end_at	:date
+  	qty	:integer
+	
+    timestamps
+  end
+	belongs_to :equipment
+ 	validates_presence_of :item,:value
+ 	def name
+ 	    self.item + ":" + value + "X" + self.qty.to_s
+ 	end
+ 	
+ 	def after_initialize
+  	if new_record?
+	    self.set_at = Date.today
+	
+	    self.status = 'true'
+	end
+	end
+  # --- Permissions --- #
+
+  def create_permitted?
+    acting_user.administrator?
+  end
+
+  def update_permitted?
+    acting_user.administrator?
+  end
+
+  def destroy_permitted?
+    acting_user.administrator?
+  end
+
+  def view_permitted?(field)
+    true
+  end
+
+end

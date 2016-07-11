@@ -1,0 +1,1150 @@
+<!-- AUTOMATICALLY GENERATED FILE - DO NOT EDIT -->
+
+<!-- ====== Main Navigation ====== -->
+
+<def tag="main-nav">
+  <navigation class="main-nav" merge-attrs param="default">
+    <nav-item href="#{base_url}/">Home</nav-item>
+    <nav-item with="&Assignment"><ht key="assignments.nav_item">分发s</ht></nav-item>
+    <nav-item with="&Equipment"><ht key="equipment.nav_item">设备s</ht></nav-item>
+    <nav-item with="&Repair"><ht key="repairs.nav_item">维修s</ht></nav-item>
+  </navigation>
+</def>
+
+
+
+
+<!-- ====== Assignment Pages ====== -->
+
+<def tag="index-page" for="Assignment">
+  <page merge title="#{ht 'assignments.index.title', :default=>['分发s'] }">
+    <body: class="index-page assignment" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="assignments.index.heading">
+            分发s
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="assignments.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="assignments.actions.new">New 分发</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Assignment">
+  <page merge title="#{ht 'assignments.new.title', :default=>[' New 分发'] }">
+    <body: class="new-page assignment" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="assignments.new.heading">
+            New 分发
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'assignments.actions.create', :default=>['Create 分发']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Assignment">
+  <page merge title="#{ht 'assignments.show.title', :default=>['分发'] }">
+
+    <body: class="show-page assignment" param/>
+
+    <content: param>
+          <header param="content-header">
+            <a:equipment param="parent-link">&laquo; <ht key="assignments.actions.back" to="equipment"><name/></ht></a:equipment>
+            <h2 param="heading">
+              <ht key="assignments.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="assignments.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit 分发
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+            <field-list fields="assign_at, end_at, state, employee" param/>
+          </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Assignment">
+  <page merge title="#{ht 'assignments.edit.title', :default=>['Edit 分发'] }">
+
+    <body: class="edit-page assignment" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="assignments.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'assignments.actions.delete', :default=>['Remove This 分发']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+
+
+<def tag="add-history-page" polymorphic/>
+<def tag="add-history-page" for="Assignment">
+  
+  <page title="#{ht 'assignments.add_history.title', :default=>['Add History']}" merge>  
+
+    <body: class="lifecycle-start-page add-history-page" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="assignments.add_history.heading">
+            Add History
+          </ht>
+        </h2>
+      </header>
+
+      <section param="content-body">
+        <add-history-form param="form"/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+<def tag="assign-page" polymorphic/>
+<def tag="assign-page" for="Assignment">
+  
+  <page title="#{ht 'assignments.assign.title', :default=>['Assign']}" merge>  
+
+    <body: class="lifecycle-start-page assign-page" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="assignments.assign.heading">
+            Assign
+          </ht>
+        </h2>
+      </header>
+
+      <section param="content-body">
+        <assign-form param="form"/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+<def tag="disable-page" polymorphic/>
+<def tag="disable-page" for="Assignment">
+  <page title="#{ht 'assignments.disable.title', :default=>['Disable']}" merge>
+
+    <body: class="lifecycle-transition-page disable-page" param/>
+
+    <content:>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="assignments.disable.heading">
+            Disable
+          </ht>
+        </h2>
+      </header>
+
+      <section param="content-body">
+        <disable-form param="form"/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+<!-- ====== Configuration Pages ====== -->
+
+<def tag="index-page" for="Configuration">
+  <page merge title="#{ht 'configurations.index.title', :default=>['更多信息s'] }">
+    <body: class="index-page configuration" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="configurations.index.heading">
+            更多信息s
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="configurations.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="configurations.actions.new">New 更多信息</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Configuration">
+  <page merge title="#{ht 'configurations.new.title', :default=>[' New 更多信息'] }">
+    <body: class="new-page configuration" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="configurations.new.heading">
+            New 更多信息
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'configurations.actions.create', :default=>['Create 更多信息']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Configuration">
+  <page merge title="#{ht 'configurations.show.title', :default=>['更多信息'] }">
+
+    <body: class="show-page configuration" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading">
+              <ht key="configurations.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="configurations.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit 更多信息
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+            <field-list fields="item, value, qty, equipment" param/>
+          </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Configuration">
+  <page merge title="#{ht 'configurations.edit.title', :default=>['Edit 更多信息'] }">
+
+    <body: class="edit-page configuration" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="configurations.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'configurations.actions.delete', :default=>['Remove This 更多信息']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+
+
+<!-- ====== Equipment Pages ====== -->
+
+<def tag="index-page" for="Equipment">
+  <page merge title="#{ht 'equipment.index.title', :default=>['设备s'] }">
+    <body: class="index-page equipment" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="equipment.index.heading">
+            设备s
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="equipment.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="equipment.actions.new">New 设备</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Equipment">
+  <page merge title="#{ht 'equipment.new.title', :default=>[' New 设备'] }">
+    <body: class="new-page equipment" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="equipment.new.heading">
+            New 设备
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'equipment.actions.create', :default=>['Create 设备']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Equipment">
+  <page merge title="#{ht 'equipment.show.title', :default=>['设备'] }">
+
+    <body: class="show-page equipment" param/>
+
+    <content: param>
+      <section-group>
+        <section param="main-content">
+          <header param="content-header">
+            <h2 param="heading">
+              <ht key="equipment.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="" param/>
+
+            <a:owner param="creator-link"/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="equipment.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit 设备
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body" with-flash-messages>
+            <field-list fields="series_number, made_at, buy_at, guarantee_at, enable_at, discard_at, reason_to_discard, status, made_in, price, remark, state, model" param/>
+            <section param="collection-section">
+              <h3 param="collection-heading">
+                <ht key="equipment.collection.heading.other" >
+                  Assignments
+                </ht>
+              </h3>
+
+              <collection:assignments param/>
+
+              <section param="add-to-collection" if="&can_create?(@equipment.assignments)">
+                <h3 param="add-form-heading">
+                  <ht key="assignments.collection.add_form_heading">
+                    Add an Assignment
+                  </ht>
+                </h3>
+                <form with="&@assignment || new_for_current_user(@equipment.assignments)" owner="equipment" without-cancel param>
+                  <field-list: skip="equipment"/>
+                  <submit: label="#{ht 'assignments.actions.add', :default=>['Add'] }"/>
+                </form>
+              </section>
+            </section>
+          </section>
+        </section>
+
+        <aside param>
+          <section param="configurations-collection-section">
+            <h3 param="configurations-collection-heading">
+              <ht key="configurations.collection.heading.other" >
+                Configurations
+              </ht>
+            </h3>
+            <collection:configurations  param="configurations-collection"/>
+          </section>
+          <section param="repairs-collection-section">
+            <h3 param="repairs-collection-heading">
+              <ht key="repairs.collection.heading.other" >
+                Repairs
+              </ht>
+            </h3>
+            <collection:repairs  param="repairs-collection"/>
+          </section>
+        </aside>
+      </section-group>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Equipment">
+  <page merge title="#{ht 'equipment.edit.title', :default=>['Edit 设备'] }">
+
+    <body: class="edit-page equipment" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="equipment.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'equipment.actions.delete', :default=>['Remove This 设备']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="dump-page" polymorphic/>
+<def tag="dump-page" for="Equipment">
+  
+  <page title="#{ht 'equipment.dump.title', :default=>['Dump']}" merge>  
+
+    <body: class="lifecycle-start-page dump-page" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="equipment.dump.heading">
+            Dump
+          </ht>
+        </h2>
+      </header>
+
+      <section param="content-body">
+        <dump-form param="form"/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+<def tag="register-page" polymorphic/>
+<def tag="register-page" for="Equipment">
+  
+  <page title="#{ht 'equipment.register.title', :default=>['Register']}" merge>  
+
+    <body: class="lifecycle-start-page register-page" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="equipment.register.heading">
+            Register
+          </ht>
+        </h2>
+      </header>
+
+      <section param="content-body">
+        <register-form param="form"/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+<def tag="assign-page" polymorphic/>
+<def tag="assign-page" for="Equipment">
+  <page title="#{ht 'equipment.assign.title', :default=>['Assign']}" merge>
+
+    <body: class="lifecycle-transition-page assign-page" param/>
+
+    <content:>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="equipment.assign.heading">
+            Assign
+          </ht>
+        </h2>
+      </header>
+
+      <section param="content-body">
+        <assign-form param="form"/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+<def tag="cease-assign-page" polymorphic/>
+<def tag="cease-assign-page" for="Equipment">
+  <page title="#{ht 'equipment.cease_assign.title', :default=>['Cease Assign']}" merge>
+
+    <body: class="lifecycle-transition-page cease-assign-page" param/>
+
+    <content:>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="equipment.cease_assign.heading">
+            Cease Assign
+          </ht>
+        </h2>
+      </header>
+
+      <section param="content-body">
+        <cease-assign-form param="form"/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+<def tag="repair-page" polymorphic/>
+<def tag="repair-page" for="Equipment">
+  <page title="#{ht 'equipment.repair.title', :default=>['Repair']}" merge>
+
+    <body: class="lifecycle-transition-page repair-page" param/>
+
+    <content:>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="equipment.repair.heading">
+            Repair
+          </ht>
+        </h2>
+      </header>
+
+      <section param="content-body">
+        <repair-form param="form"/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+<def tag="repaired-page" polymorphic/>
+<def tag="repaired-page" for="Equipment">
+  <page title="#{ht 'equipment.repaired.title', :default=>['Repaired']}" merge>
+
+    <body: class="lifecycle-transition-page repaired-page" param/>
+
+    <content:>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="equipment.repaired.heading">
+            Repaired
+          </ht>
+        </h2>
+      </header>
+
+      <section param="content-body">
+        <repaired-form param="form"/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+<def tag="discard-page" polymorphic/>
+<def tag="discard-page" for="Equipment">
+  <page title="#{ht 'equipment.discard.title', :default=>['Discard']}" merge>
+
+    <body: class="lifecycle-transition-page discard-page" param/>
+
+    <content:>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="equipment.discard.heading">
+            Discard
+          </ht>
+        </h2>
+      </header>
+
+      <section param="content-body">
+        <discard-form param="form"/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+<!-- ====== Repair Pages ====== -->
+
+<def tag="index-page" for="Repair">
+  <page merge title="#{ht 'repairs.index.title', :default=>['维修s'] }">
+    <body: class="index-page repair" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="repairs.index.heading">
+            维修s
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="repairs.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="repairs.actions.new">New 维修</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Repair">
+  <page merge title="#{ht 'repairs.new.title', :default=>[' New 维修'] }">
+    <body: class="new-page repair" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="repairs.new.heading">
+            New 维修
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'repairs.actions.create', :default=>['Create 维修']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Repair">
+  <page merge title="#{ht 'repairs.show.title', :default=>['维修'] }">
+
+    <body: class="show-page repair" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading">
+              <ht key="repairs.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="repairs.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit 维修
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+            <field-list fields="report_at, end_at, trouble, result, state, contact, equipment" param/>
+          </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Repair">
+  <page merge title="#{ht 'repairs.edit.title', :default=>['Edit 维修'] }">
+
+    <body: class="edit-page repair" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="repairs.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'repairs.actions.delete', :default=>['Remove This 维修']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="send-for-repair-page" polymorphic/>
+<def tag="send-for-repair-page" for="Repair">
+  
+  <page title="#{ht 'repairs.send_for_repair.title', :default=>['Send For Repair']}" merge>  
+
+    <body: class="lifecycle-start-page send-for-repair-page" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="repairs.send_for_repair.heading">
+            Send For Repair
+          </ht>
+        </h2>
+      </header>
+
+      <section param="content-body">
+        <send-for-repair-form param="form"/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+<def tag="add-history-repair-page" polymorphic/>
+<def tag="add-history-repair-page" for="Repair">
+  
+  <page title="#{ht 'repairs.add_history_repair.title', :default=>['Add History Repair']}" merge>  
+
+    <body: class="lifecycle-start-page add-history-repair-page" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="repairs.add_history_repair.heading">
+            Add History Repair
+          </ht>
+        </h2>
+      </header>
+
+      <section param="content-body">
+        <add-history-repair-form param="form"/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+<def tag="get-repaired-page" polymorphic/>
+<def tag="get-repaired-page" for="Repair">
+  <page title="#{ht 'repairs.get_repaired.title', :default=>['Get Repaired']}" merge>
+
+    <body: class="lifecycle-transition-page get-repaired-page" param/>
+
+    <content:>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="repairs.get_repaired.heading">
+            Get Repaired
+          </ht>
+        </h2>
+      </header>
+
+      <section param="content-body">
+        <get-repaired-form param="form"/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+<def tag="dump-page" polymorphic/>
+<def tag="dump-page" for="Repair">
+  <page title="#{ht 'repairs.dump.title', :default=>['Dump']}" merge>
+
+    <body: class="lifecycle-transition-page dump-page" param/>
+
+    <content:>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="repairs.dump.heading">
+            Dump
+          </ht>
+        </h2>
+      </header>
+
+      <section param="content-body">
+        <dump-form param="form"/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+<!-- ====== Result Pages ====== -->
+
+<def tag="index-page" for="Result">
+  <page merge title="#{ht 'results.index.title', :default=>['维修结果s'] }">
+    <body: class="index-page result" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="results.index.heading">
+            维修结果s
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="results.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="results.actions.new">New 维修结果</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Result">
+  <page merge title="#{ht 'results.new.title', :default=>[' New 维修结果'] }">
+    <body: class="new-page result" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="results.new.heading">
+            New 维修结果
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'results.actions.create', :default=>['Create 维修结果']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Result">
+  <page merge title="#{ht 'results.show.title', :default=>['维修结果'] }">
+
+    <body: class="show-page result" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading">
+              <ht key="results.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="results.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit 维修结果
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+            <field-list fields="report_at, report, status" param/>
+          </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Result">
+  <page merge title="#{ht 'results.edit.title', :default=>['Edit 维修结果'] }">
+
+    <body: class="edit-page result" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="results.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'results.actions.delete', :default=>['Remove This 维修结果']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+
+
+<!-- ====== User Pages ====== -->
+
+<def tag="index-page" for="User">
+  <page merge title="#{ht 'users.index.title', :default=>['Users'] }">
+    <body: class="index-page user" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="users.index.heading">
+            Users
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="users.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="User">
+  <page merge title="#{ht 'users.new.title', :default=>[' New User'] }">
+    <body: class="new-page user" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="users.new.heading">
+            New User
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'users.actions.create', :default=>['Create User']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="User">
+  <page merge title="#{ht 'users.show.title', :default=>['User'] }">
+
+    <body: class="show-page user" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading">
+              <ht key="users.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="administrator" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="users.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit User
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+            <field-list fields="email_address, state" param/>
+          </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="User">
+  <page merge title="#{ht 'users.edit.title', :default=>['Edit User'] }">
+
+    <body: class="edit-page user" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="users.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'users.actions.delete', :default=>['Remove This User']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="signup-page" polymorphic/>
+<def tag="signup-page" for="User">
+  
+  <page title="#{ht 'users.signup.title', :default=>['Signup']}" merge>  
+
+    <body: class="lifecycle-start-page signup-page" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="users.signup.heading">
+            Signup
+          </ht>
+        </h2>
+      </header>
+
+      <section param="content-body">
+        <signup-form param="form"/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+<def tag="reset-password-page" polymorphic/>
+<def tag="reset-password-page" for="User">
+  <page title="#{ht 'users.reset_password.title', :default=>['Reset Password']}" merge>
+
+    <body: class="lifecycle-transition-page reset-password-page" param/>
+
+    <content:>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="users.reset_password.heading">
+            Reset Password
+          </ht>
+        </h2>
+      </header>
+
+      <section param="content-body">
+        <reset-password-form param="form"/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+

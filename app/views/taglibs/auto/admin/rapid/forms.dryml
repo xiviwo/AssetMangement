@@ -1,0 +1,62 @@
+<!-- AUTOMATICALLY GENERATED FILE - DO NOT EDIT -->
+
+<def tag="form" for="Category">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="name, parent_category" param/>
+    <div param="actions">
+      <submit label="#{ht 'categories.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
+<def tag="form" for="Contact">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="name, address, phone" param/>
+    <div param="actions">
+      <submit label="#{ht 'contacts.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
+<def tag="form" for="Department">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="name, number, establish_at, cancel_at, status, department" param/>
+    <div param="actions">
+      <submit label="#{ht 'departments.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
+<def tag="form" for="Employee">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="name, gender, identity, date_of_birth, employee_number, department" param/>
+    <div param="actions">
+      <submit label="#{ht 'employees.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
+<def tag="form" for="Model">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="model_name, brand, vendor, price, category" param/>
+    <div param="actions">
+      <submit label="#{ht 'models.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+

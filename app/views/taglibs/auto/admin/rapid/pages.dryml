@@ -1,0 +1,670 @@
+<!-- AUTOMATICALLY GENERATED FILE - DO NOT EDIT -->
+
+<!-- ====== Main Navigation ====== -->
+
+<def tag="main-nav">
+  <navigation class="main-nav" merge-attrs param="default">
+    <nav-item href="#{base_url}/">Home</nav-item>
+    <nav-item with="&Category"><ht key="categories.nav_item">类别s</ht></nav-item>
+    <nav-item with="&Contact"><ht key="contacts.nav_item">供应商s</ht></nav-item>
+    <nav-item with="&Department"><ht key="departments.nav_item">部门s</ht></nav-item>
+    <nav-item with="&Employee"><ht key="employees.nav_item">员工s</ht></nav-item>
+    <nav-item with="&Model"><ht key="models.nav_item">型号s</ht></nav-item>
+  </navigation>
+</def>
+
+
+
+
+<!-- ====== Category Pages ====== -->
+
+<def tag="index-page" for="Category">
+  <page merge title="#{ht 'categories.index.title', :default=>['类别s'] }">
+    <body: class="index-page category" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="categories.index.heading">
+            类别s
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="categories.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="categories.actions.new">New 类别</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Category">
+  <page merge title="#{ht 'categories.new.title', :default=>[' New 类别'] }">
+    <body: class="new-page category" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="categories.new.heading">
+            New 类别
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'categories.actions.create', :default=>['Create 类别']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Category">
+  <page merge title="#{ht 'categories.show.title', :default=>['类别'] }">
+
+    <body: class="show-page category" param/>
+
+    <content: param>
+      <section-group>
+        <section param="main-content">
+          <header param="content-header">
+            <h2 param="heading">
+              <ht key="categories.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="categories.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit 类别
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body" with-flash-messages>
+            <field-list fields="parent_category" param/>
+            <section param="collection-section">
+              <h3 param="collection-heading">
+                <ht key="categories.collection.heading.other" >
+                  Models
+                </ht>
+              </h3>
+
+              <collection:models param/>
+            </section>
+          </section>
+        </section>
+
+        <aside param>
+          <section param="sub_categories-collection-section">
+            <h3 param="sub_categories-collection-heading">
+              <ht key="sub_categories.collection.heading.other" >
+                Sub Categories
+              </ht>
+            </h3>
+            <collection:sub_categories  param="sub_categories-collection"/>
+          </section>
+        </aside>
+      </section-group>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Category">
+  <page merge title="#{ht 'categories.edit.title', :default=>['Edit 类别'] }">
+
+    <body: class="edit-page category" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="categories.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'categories.actions.delete', :default=>['Remove This 类别']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+
+
+
+
+
+<!-- ====== Contact Pages ====== -->
+
+<def tag="index-page" for="Contact">
+  <page merge title="#{ht 'contacts.index.title', :default=>['供应商s'] }">
+    <body: class="index-page contact" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="contacts.index.heading">
+            供应商s
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="contacts.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="contacts.actions.new">New 供应商</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Contact">
+  <page merge title="#{ht 'contacts.new.title', :default=>[' New 供应商'] }">
+    <body: class="new-page contact" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="contacts.new.heading">
+            New 供应商
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'contacts.actions.create', :default=>['Create 供应商']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Contact">
+  <page merge title="#{ht 'contacts.show.title', :default=>['供应商'] }">
+
+    <body: class="show-page contact" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading">
+              <ht key="contacts.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="contacts.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit 供应商
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+            <field-list fields="address, phone" param/>
+          </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Contact">
+  <page merge title="#{ht 'contacts.edit.title', :default=>['Edit 供应商'] }">
+
+    <body: class="edit-page contact" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="contacts.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'contacts.actions.delete', :default=>['Remove This 供应商']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+
+
+<!-- ====== Department Pages ====== -->
+
+<def tag="index-page" for="Department">
+  <page merge title="#{ht 'departments.index.title', :default=>['部门s'] }">
+    <body: class="index-page department" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="departments.index.heading">
+            部门s
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="departments.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="departments.actions.new">New 部门</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Department">
+  <page merge title="#{ht 'departments.new.title', :default=>[' New 部门'] }">
+    <body: class="new-page department" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="departments.new.heading">
+            New 部门
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'departments.actions.create', :default=>['Create 部门']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Department">
+  <page merge title="#{ht 'departments.show.title', :default=>['部门'] }">
+
+    <body: class="show-page department" param/>
+
+    <content: param>
+      <section-group>
+        <section param="main-content">
+          <header param="content-header">
+            <h2 param="heading">
+              <ht key="departments.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="departments.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit 部门
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body" with-flash-messages>
+            <field-list fields="number, establish_at, cancel_at, status, department" param/>
+            <section param="collection-section">
+              <h3 param="collection-heading">
+                <ht key="departments.collection.heading.other" >
+                  Employees
+                </ht>
+              </h3>
+
+              <collection:employees param/>
+            </section>
+          </section>
+        </section>
+
+        <aside param>
+          <section param="sub_departments-collection-section">
+            <h3 param="sub_departments-collection-heading">
+              <ht key="sub_departments.collection.heading.other" >
+                Sub Departments
+              </ht>
+            </h3>
+            <collection:sub_departments  param="sub_departments-collection"/>
+          </section>
+        </aside>
+      </section-group>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Department">
+  <page merge title="#{ht 'departments.edit.title', :default=>['Edit 部门'] }">
+
+    <body: class="edit-page department" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="departments.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'departments.actions.delete', :default=>['Remove This 部门']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+
+
+<!-- ====== Employee Pages ====== -->
+
+<def tag="index-page" for="Employee">
+  <page merge title="#{ht 'employees.index.title', :default=>['员工s'] }">
+    <body: class="index-page employee" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="employees.index.heading">
+            员工s
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="employees.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="employees.actions.new">New 员工</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Employee">
+  <page merge title="#{ht 'employees.new.title', :default=>[' New 员工'] }">
+    <body: class="new-page employee" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="employees.new.heading">
+            New 员工
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'employees.actions.create', :default=>['Create 员工']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Employee">
+  <page merge title="#{ht 'employees.show.title', :default=>['员工'] }">
+
+    <body: class="show-page employee" param/>
+
+    <content: param>
+          <header param="content-header">
+            <a:department param="parent-link">&laquo; <ht key="employees.actions.back" to="department"><name/></ht></a:department>
+            <h2 param="heading">
+              <ht key="employees.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="employees.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit 员工
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+            <field-list fields="gender, identity, date_of_birth, employee_number" param/>
+          </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Employee">
+  <page merge title="#{ht 'employees.edit.title', :default=>['Edit 员工'] }">
+
+    <body: class="edit-page employee" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="employees.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'employees.actions.delete', :default=>['Remove This 员工']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+
+
+<!-- ====== Model Pages ====== -->
+
+<def tag="index-page" for="Model">
+  <page merge title="#{ht 'models.index.title', :default=>['型号s'] }">
+    <body: class="index-page model" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="models.index.heading">
+            型号s
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="models.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="models.actions.new">New 型号</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Model">
+  <page merge title="#{ht 'models.new.title', :default=>[' New 型号'] }">
+    <body: class="new-page model" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="models.new.heading">
+            New 型号
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'models.actions.create', :default=>['Create 型号']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Model">
+  <page merge title="#{ht 'models.show.title', :default=>['型号'] }">
+
+    <body: class="show-page model" param/>
+
+    <content: param>
+          <header param="content-header">
+            <a:category param="parent-link">&laquo; <ht key="models.actions.back" to="category"><name/></ht></a:category>
+            <h2 param="heading">
+              <ht key="models.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="models.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit 型号
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+            <field-list fields="model_name, brand, vendor, price" param/>
+          </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Model">
+  <page merge title="#{ht 'models.edit.title', :default=>['Edit 型号'] }">
+
+    <body: class="edit-page model" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="models.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'models.actions.delete', :default=>['Remove This 型号']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+

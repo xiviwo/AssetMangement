@@ -1,0 +1,113 @@
+@media print
+{
+    .page-break { display:block; page-break-before:avoid; }
+}
+table 
+{
+border:2px solid; 
+border-collapse:collapse;
+table-layout:auto
+
+}
+table.autowidth  {
+width:auto;
+}
+
+table.fixedwidth  {
+width:485pt;
+}
+
+html {
+margin: 0;
+padding:0;
+
+}
+
+body { 
+color : #000000; 
+background : #ffffff; 
+font-family : "Times New Roman", Times, serif; 
+font-size : 10pt; 
+} 
+
+h1, h2,h3, h4, h5{
+margin: 0;
+padding:0 0 0 0;
+position:relative;
+left:0pt;
+}
+
+
+#nopaginate {}
+p
+{
+margin: 1pt;
+padding:1pt;
+
+}
+
+
+tr {
+border:1pt solid;
+}
+
+td {
+text-align:center;
+border:1pt solid;
+}
+td.left  {text-align:left;} 
+
+span {
+
+font-family: "宋体";
+font-weight:bold;
+font-size: 10pt;
+}
+
+
+pre {
+  background-color: #eee;
+  padding: 1pt;
+  font-size: 11pt;
+}
+
+a { color: #000; }
+a:visited { color: #666; }
+a:hover { color: #fff; background-color:#000; }
+
+.fieldWithErrors {
+  padding: 2pt;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 400pt;
+  border: 2pt solid red;
+  padding: 7pt;
+  padding-bottom: 12pt;
+  margin-bottom: 20pt;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5pt 5pt 5pt 15pt;
+  font-size: 12pt;
+  margin: -7pt;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5pt;
+}
+
+#errorExplanation ul li {
+  font-size: 12pt;
+  list-style: square;
+}
+

@@ -1,0 +1,43 @@
+<!-- Global taglib - these tags are shared across all subsites -->
+
+ <def tag="input" for="date" attrs="order">
+   <% order = order.nil? ? [:year ,:month, :day] : comma_split(order).*.to_sym -%>
+  <%= select_date(this, attributes.merge(:prefix => param_name_for_this, :order => order, :include_blank => "true"  )) %>
+</def>
+
+ <extend tag="input" for="date">
+    <old-input merge start-year="&1900" end-year="&2020"  />
+ </extend>
+ 
+ 
+ <def tag="print-page">
+  <page merge >
+	       <head: replace >
+	       		<stylesheet name="/stylesheets/print.css" media="all"/>
+
+	       </head:>		
+   		<header: replace />
+  	
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+           Print
+        </h2>
+        
+      </section>
+
+      <section param="content-body">
+      
+	<table with="this" fields="*" if="&this!=nil">
+
+	
+	</table>
+      </section>
+
+      
+    </content:>
+   
+
+  
+  </page>
+</def>

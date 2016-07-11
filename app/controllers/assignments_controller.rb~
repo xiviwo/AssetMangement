@@ -1,0 +1,21 @@
+class AssignmentsController < ApplicationController
+
+  hobo_model_controller
+
+  auto_actions :all
+
+  #auto_actions_for :equipment,:create
+  
+  #show_action :close_last
+
+  	def print
+		if !params[:id].nil?
+		@s = params[:id].collect{|t| t.gsub("\\-","").to_i}
+
+	 	@assignments =self.model.find(:all,:conditions => { :id => @s })
+		else 
+		@assignments = nil
+		end
+
+	end  
+end

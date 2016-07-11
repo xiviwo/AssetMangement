@@ -1,0 +1,47 @@
+class Discard < ActiveRecord::Base
+
+  hobo_model # Don't put anything above this
+
+  fields do
+  	discard_at	:date
+  	reason	:text
+  	
+    timestamps
+  end
+	belongs_to :equipment
+	validates_presence_of :discard_at,:reason
+	
+	validates_presence_of :equipment
+		
+		
+	def name
+		self.equipment.name + " discarded at " + self.discard_at.to_s
+	end
+	
+	
+	def after_initialize
+	  	if new_record?
+		    self.discard_at = Date.today
+
+		end
+	end
+
+  # --- Permissions --- #
+
+  def create_permitted?
+    acting_user.administrator?
+  end
+
+  def update_permitted?
+    acting_user.administrator?
+  end
+
+  def destroy_permitted?
+    acting_user.administrator?
+  end
+
+  def view_permitted?(field)
+    true
+  end
+
+end

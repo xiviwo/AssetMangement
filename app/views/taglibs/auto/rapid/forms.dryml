@@ -1,0 +1,243 @@
+<!-- AUTOMATICALLY GENERATED FILE - DO NOT EDIT -->
+
+<def tag="form" for="Assignment">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="assign_at, end_at, state, employee, equipment" param/>
+    <div param="actions">
+      <submit label="#{ht 'assignments.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+<def tag="add-history-form" polymorphic/>
+<def tag="add-history-form" for="Assignment">
+  <form lifecycle="add_history" merge param="default">
+    <error-messages param/>
+    <field-list fields="employee, equipment, assign_at, end_at" param/>
+    <div param="actions">
+      <submit label="#{ht 'assignments.actions.add_history', :default=>['Add History']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+<def tag="assign-form" polymorphic/>
+<def tag="assign-form" for="Assignment">
+  <form lifecycle="assign" merge param="default">
+    <error-messages param/>
+    <field-list fields="employee, equipment, assign_at" param/>
+    <div param="actions">
+      <submit label="#{ht 'assignments.actions.assign', :default=>['Assign']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+<def tag="disable-form" polymorphic/>
+<def tag="disable-form" for="Assignment">
+  <form lifecycle="disable" merge param="default">
+    <error-messages param/>
+    <input type="hidden" name="key" value="&this.lifecycle.provided_key" if="&this.lifecycle.provided_key"/>
+    <field-list fields="employee, equipment, assign_at, end_at" param/>
+    <div param="actions">
+      <submit label="#{ht 'assignments.actions.disable', :default=>['Disable']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+<def tag="form" for="Configuration">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="item, value, qty, equipment" param/>
+    <div param="actions">
+      <submit label="#{ht 'configurations.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
+<def tag="form" for="Equipment">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="series_number, made_at, buy_at, guarantee_at, enable_at, discard_at, reason_to_discard, status, made_in, price, remark, state, configurations, model, owner" param/>
+    <div param="actions">
+      <submit label="#{ht 'equipment.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+<def tag="dump-form" polymorphic/>
+<def tag="dump-form" for="Equipment">
+  <form lifecycle="dump" merge param="default">
+    <error-messages param/>
+    <field-list fields="series_number, buy_at, guarantee_at, model, configurations, discard_at, reason_to_discard" param/>
+    <div param="actions">
+      <submit label="#{ht 'equipment.actions.dump', :default=>['Dump']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+<def tag="register-form" polymorphic/>
+<def tag="register-form" for="Equipment">
+  <form lifecycle="register" merge param="default">
+    <error-messages param/>
+    <field-list fields="series_number, made_at, buy_at, guarantee_at, model, price, configurations" param/>
+    <div param="actions">
+      <submit label="#{ht 'equipment.actions.register', :default=>['Register']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+<def tag="assign-form" polymorphic/>
+<def tag="assign-form" for="Equipment">
+  <form lifecycle="assign" merge param="default">
+    <error-messages param/>
+    <input type="hidden" name="key" value="&this.lifecycle.provided_key" if="&this.lifecycle.provided_key"/>
+    <field-list fields="" param/>
+    <div param="actions">
+      <submit label="#{ht 'equipment.actions.assign', :default=>['Assign']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+<def tag="cease-assign-form" polymorphic/>
+<def tag="cease-assign-form" for="Equipment">
+  <form lifecycle="cease_assign" merge param="default">
+    <error-messages param/>
+    <input type="hidden" name="key" value="&this.lifecycle.provided_key" if="&this.lifecycle.provided_key"/>
+    <field-list fields="" param/>
+    <div param="actions">
+      <submit label="#{ht 'equipment.actions.cease_assign', :default=>['Cease Assign']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+<def tag="repair-form" polymorphic/>
+<def tag="repair-form" for="Equipment">
+  <form lifecycle="repair" merge param="default">
+    <error-messages param/>
+    <input type="hidden" name="key" value="&this.lifecycle.provided_key" if="&this.lifecycle.provided_key"/>
+    <field-list fields="" param/>
+    <div param="actions">
+      <submit label="#{ht 'equipment.actions.repair', :default=>['Repair']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+<def tag="repaired-form" polymorphic/>
+<def tag="repaired-form" for="Equipment">
+  <form lifecycle="repaired" merge param="default">
+    <error-messages param/>
+    <input type="hidden" name="key" value="&this.lifecycle.provided_key" if="&this.lifecycle.provided_key"/>
+    <field-list fields="" param/>
+    <div param="actions">
+      <submit label="#{ht 'equipment.actions.repaired', :default=>['Repaired']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+<def tag="discard-form" polymorphic/>
+<def tag="discard-form" for="Equipment">
+  <form lifecycle="discard" merge param="default">
+    <error-messages param/>
+    <input type="hidden" name="key" value="&this.lifecycle.provided_key" if="&this.lifecycle.provided_key"/>
+    <field-list fields="" param/>
+    <div param="actions">
+      <submit label="#{ht 'equipment.actions.discard', :default=>['Discard']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+<def tag="form" for="Repair">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="report_at, end_at, trouble, result, state, contact, equipment" param/>
+    <div param="actions">
+      <submit label="#{ht 'repairs.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+<def tag="send-for-repair-form" polymorphic/>
+<def tag="send-for-repair-form" for="Repair">
+  <form lifecycle="send_for_repair" merge param="default">
+    <error-messages param/>
+    <field-list fields="equipment, contact, report_at, trouble" param/>
+    <div param="actions">
+      <submit label="#{ht 'repairs.actions.send_for_repair', :default=>['Send For Repair']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+<def tag="add-history-repair-form" polymorphic/>
+<def tag="add-history-repair-form" for="Repair">
+  <form lifecycle="add_history_repair" merge param="default">
+    <error-messages param/>
+    <field-list fields="equipment, contact, report_at, end_at, trouble, result" param/>
+    <div param="actions">
+      <submit label="#{ht 'repairs.actions.add_history_repair', :default=>['Add History Repair']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+<def tag="get-repaired-form" polymorphic/>
+<def tag="get-repaired-form" for="Repair">
+  <form lifecycle="get_repaired" merge param="default">
+    <error-messages param/>
+    <input type="hidden" name="key" value="&this.lifecycle.provided_key" if="&this.lifecycle.provided_key"/>
+    <field-list fields="equipment, contact, report_at, end_at, trouble, result" param/>
+    <div param="actions">
+      <submit label="#{ht 'repairs.actions.get_repaired', :default=>['Get Repaired']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+<def tag="dump-form" polymorphic/>
+<def tag="dump-form" for="Repair">
+  <form lifecycle="dump" merge param="default">
+    <error-messages param/>
+    <input type="hidden" name="key" value="&this.lifecycle.provided_key" if="&this.lifecycle.provided_key"/>
+    <field-list fields="equipment, contact, report_at, end_at, trouble, result" param/>
+    <div param="actions">
+      <submit label="#{ht 'repairs.actions.dump', :default=>['Dump']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+<def tag="form" for="Result">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="report_at, report, status" param/>
+    <div param="actions">
+      <submit label="#{ht 'results.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
+<def tag="form" for="User">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="name, email_address, administrator, state" param/>
+    <div param="actions">
+      <submit label="#{ht 'users.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+<def tag="signup-form" polymorphic/>
+<def tag="signup-form" for="User">
+  <form lifecycle="signup" merge param="default">
+    <error-messages param/>
+    <field-list fields="name, email_address, password, password_confirmation" param/>
+    <div param="actions">
+      <submit label="#{ht 'users.actions.signup', :default=>['Signup']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+<def tag="reset-password-form" polymorphic/>
+<def tag="reset-password-form" for="User">
+  <form lifecycle="reset_password" merge param="default">
+    <error-messages param/>
+    <input type="hidden" name="key" value="&this.lifecycle.provided_key" if="&this.lifecycle.provided_key"/>
+    <field-list fields="password, password_confirmation" param/>
+    <div param="actions">
+      <submit label="#{ht 'users.actions.reset_password', :default=>['Reset Password']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+

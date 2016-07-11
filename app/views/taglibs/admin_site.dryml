@@ -1,0 +1,21 @@
+<!-- Tag definitions for the Admin subsite -->
+  
+<include src="rapid" plugin="hobo"/>
+
+<include src="taglibs/auto/admin/rapid/cards"/>
+<include src="taglibs/auto/admin/rapid/pages"/>
+<include src="taglibs/auto/admin/rapid/forms"/>
+
+<set-theme name="clean"/>
+
+<def tag="app-name">Info - Admin</def>
+
+<def tag="main-nav">
+  <navigation class="main-nav" merge-attrs param="default">
+    <nav-item href="#{base_url}/">Home</nav-item>
+    <% models = Hobo::Model.all_models.select { |m| linkable?(m, :index) }.sort_by &:name -%>
+    <repeat with="&models">
+      <nav-item><ht key="#{this.name.tableize}.nav_item"><%= this.view_hints.model_name %></ht></nav-item>
+    </repeat>
+  </navigation>
+</def>

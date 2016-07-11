@@ -1,0 +1,49 @@
+<show-page>
+
+<configurations-collection:  replace >
+<collection:configurations part="conf" />
+
+
+    <form:configurations.new update="conf" reset-form refocus-form>
+      <div>
+        填加一配置:
+      </div>
+    <error-messages/>
+    <field-list fields="item, value, qty" />
+
+    <div >
+      <submit label="#{ht 'configurations.actions.save', :default=>['Save']}" />
+    </div>
+    </form>
+
+</configurations-collection:>
+
+<collection-section: replace>
+              <h3>
+                <ht key="equipment.collection.heading.other" >
+                  Assignments
+                </ht>
+              </h3>
+
+              <collection:assignments part="assignment" />
+              
+      <section if="&can_create?(@equipment.assignments)">
+          
+             
+                <h3 >
+                  <ht key="assignments.collection.add_form_heading">
+                    Add an Assignment
+                  </ht>
+                </h3>
+                
+                
+                <form:assignments.new  onsubmit="assign();" without-cancel >
+                  <field-list: skip="equipment"/>
+                  <submit: label="#{ht 'assignments.actions.add', :default=>['Add'] }"/>
+                </form>
+              </section>
+
+
+</collection-section:>
+
+</show-page>
