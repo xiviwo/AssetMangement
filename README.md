@@ -24,6 +24,16 @@ This system is designed to house assets of computer and track the lifecycle of a
 
 **Category** -  provide more detailed information how equipment categorize into .
 
+##Screen Shot
+###Assignment
+<img src="images/assign.png" alt="done" width="735" height="">
+###Category
+<img src="images/category.png" alt="done" width="735" height="">
+###Device
+<img src="images/device.png" alt="done" width="735" height="">
+###Repair
+<img src="images/repair.png" alt="done" width="735" height="">
+
 ##Specs
 Powered by Ruby and Rails
 
