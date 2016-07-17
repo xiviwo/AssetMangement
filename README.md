@@ -26,13 +26,13 @@ This system is designed to house assets of computer and track the lifecycle of a
 
 ##Screen Shot
 ###Assignment
-<img src="images/assign.png" alt="done" width="735" height="">
+<img src="images/assign.png" alt="done" width="900" height="">
 ###Category
-<img src="images/category.png" alt="done" width="735" height="">
+<img src="images/category.png" alt="done" width="900" height="">
 ###Device
-<img src="images/device.png" alt="done" width="735" height="">
+<img src="images/device.png" alt="done" width="900" height="">
 ###Repair
-<img src="images/repair.png" alt="done" width="735" height="">
+<img src="images/repair.png" alt="done" width="900" height="">
 
 ##Specs
 Powered by Ruby and Rails
